@@ -1,0 +1,35 @@
+.repository {
+    border: 1px solid #ccc;
+    padding: 16px;
+}
+
+.repositoryName {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+.repositoryInfo {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 8px;
+}
+
+.repositoryOwner {
+    display: flex;
+    align-items: center;
+}
+
+.ownerName {
+    width: 2rem;
+}
+
+.repositoryStars {
+    display: flex;
+    align-items: center;
+}
+
+.repositoryIcon {
+    width: 2rem;
+    margin-right: 1rem;
+}

@@ -1,8 +1,6 @@
-import React from "react";
 import Repository from "./Repository";
 
-const ItemList = (props) => {
-
+const RepositoryList = (props) => {
     return (
         <>
             <div>
@@ -10,10 +8,10 @@ const ItemList = (props) => {
                     Trending Repositories
                 </h1>
             </div>
-            <ul className="list">
+            <ul className="repositoryList">
                 {props?.items?.map((item, index) => (
-                    <li key={index} className="list-item">
-                        <Repository repo={item}/>
+                    <li key={index} className="repositoryItem">
+                        <Repository repo={item} />
                     </li>
                 ))}
             </ul>
@@ -21,4 +19,4 @@ const ItemList = (props) => {
     );
 }
 
-export default ItemList;
+export default RepositoryList;

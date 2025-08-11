@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function useFetch() {
+function useFetchData() {
 
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -8,24 +8,24 @@ function useFetch() {
 
     useEffect(() => {
         console.log('Fetching data...');
-        async () => {
+        const fetchData = async () => {
             try {
                 const response = await fetch('https://api.github.com/search/repositories?q=created:>2024-07-15&sort=stars&order=desc');
                 if (!response.ok) {
                     throw new Error(`HTTP error ' + ${response.status}`);
                 }
                 const result = await response.json();
-                setData(result);
+                setData(result?.items);
             } catch (error) {
                 setError(error);
             } finally {
                 setLoading(false);
             }
         }
-        console.log('Response' + response.json());
-        
-        return [data, loading, error];
+        fetchData();
     }, []);
+
+    return {data, loading, error};
 }
 
-export default useFetch;
+export default useFetchData;
