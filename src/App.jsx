@@ -1,17 +1,20 @@
 import './App.css';
 import RepositoryList from './components/RepositoryList';
-import useFetchData from './hooks/useFetchData';
 import PageButton from './components/PageButton';
+import usePageNumber from './hooks/usePageNumber';
 
 function App() {
 
-  const { data, loading, error } = useFetchData() || {};
+  const { page, updatePage, data, loading, error } = usePageNumber();
 
   return (
     <>
       <div>
+        {loading && <p>Loading...</p>}
+        {error && <p>Error: {error.message}</p>}
+
         <RepositoryList items={data} />
-        <PageButton />
+        <PageButton page={page} updatePage={updatePage} />
       </div>
     </>
   )
